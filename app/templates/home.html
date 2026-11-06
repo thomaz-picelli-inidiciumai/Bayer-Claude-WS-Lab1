@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block titulo %}Home · BayViva{% endblock %}
+{% block conteudo %}
+<div class="boas-vindas">
+  <h1>Olá, {{ usuario.nome }}</h1>
+  <p>O que você quer fazer agora?</p>
+</div>
+<div class="atalhos">
+  <a class="tile" href="/em-construcao/visitas"><span class="icone visita">V</span><div><strong>Registrar visita</strong><span class="desc">Grave o resultado de uma visita a um médico.</span></div></a>
+  <a class="tile" href="/em-construcao/insight"><span class="icone insight">I</span><div><strong>Registrar insight</strong><span class="desc">Anote uma percepção de campo.</span></div></a>
+  <a class="tile" href="/em-construcao/nova-conta"><span class="icone conta">C</span><div><strong>Nova conta</strong><span class="desc">Cadastre um novo médico.</span></div></a>
+</div>
+{% endblock %}
