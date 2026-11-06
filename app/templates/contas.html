@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block titulo %}Contas · BayViva{% endblock %}
+{% block conteudo %}
+<div class="page-header">
+  <span class="icone conta">C</span>
+  <div><div class="sub">Contas</div><h1>Todos os médicos</h1></div>
+</div>
+<div class="card">
+  <table>
+    <thead><tr><th>Nome</th><th>Especialidade</th><th>Cidade</th></tr></thead>
+    <tbody>
+    {% for id, nome, esp, cidade, uf in medicos %}
+      <tr><td><a href="/contas/{{ id }}">{{ nome }}</a></td><td>{{ esp }}</td><td>{{ cidade }}/{{ uf }}</td></tr>
+    {% else %}
+      <tr><td colspan="3" class="vazio">Nenhum médico encontrado.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

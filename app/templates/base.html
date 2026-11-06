@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}BayViva{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="{% block classe_body %}{% endblock %}">
+  {% block corpo %}
+  <header class="global-header">
+    <a class="logo" href="/home">{% include "_simbolo.html" %}BayViva</a>
+    <form class="busca" action="/contas" method="get">
+      <input type="search" name="q" placeholder="Pesquisar médicos..." aria-label="Pesquisar">
+    </form>
+    <details class="usuario">
+      <summary><span class="avatar">{{ usuario.iniciais }}</span> {{ usuario.nome }}</summary>
+      <ul>
+        <li><a href="/em-construcao/configuracoes">Configurações</a></li>
+        <li><a href="/login">Sair</a></li>
+      </ul>
+    </details>
+  </header>
+  <nav class="nav">
+    <div class="app">Vendas</div>
+    <div class="menu">
+      <a href="/home" class="{{ 'ativo' if ativo == 'home' }}">Home</a>
+      <a href="/contas" class="{{ 'ativo' if ativo == 'contas' }}">Contas</a>
+      <a href="/em-construcao/visitas" class="{{ 'ativo' if ativo == 'visitas' }}">Visitas</a>
+      <a href="/em-construcao/painel" class="{{ 'ativo' if ativo == 'painel' }}">Painel</a>
+      <a href="/em-construcao/agenda" class="{{ 'ativo' if ativo == 'agenda' }}">Agenda</a>
+    </div>
+  </nav>
+  <main>{% block conteudo %}{% endblock %}</main>
+  {% endblock %}
+</body>
+</html>
