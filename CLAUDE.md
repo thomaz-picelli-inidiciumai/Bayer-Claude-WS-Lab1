@@ -8,7 +8,8 @@ CRM simplificado para representantes da indústria farmacêutica. Tudo é fictí
 ## Comandos
 - Instalar: `python -m venv .venv` e `.venv/Scripts/pip install -r requirements.txt` (Windows) ou `.venv/bin/pip ...`
 - Criar o banco: `python db/seed.py` (gera `db/bayviva.duckdb`, semente fixa)
-- Rodar o app: `uvicorn app.main:app --reload` e abrir http://127.0.0.1:8000
+- Subir tudo do jeito certo: `bash iniciar.sh` (workshop, atrás do proxy) ou `bash iniciar.sh local`. Instala, cria o banco, define prefixo e porta que combinam e confere login, redirecionamento e CSS. Prefira este comando ao `uvicorn` solto: subir atrás do proxy sem `BAYVIVA_ROOT_PATH` deixa a tela sem CSS e com redirecionamentos errados.
+- Rodar o app à mão: `uvicorn app.main:app --reload` e abrir http://127.0.0.1:8000
 - Rodar atrás do proxy da VM (URL `https://<host-do-participante>/proxy/8000/login`): `BAYVIVA_ROOT_PATH=/proxy/8000 uvicorn app.main:app --port 8000 --proxy-headers --forwarded-allow-ips='*'`. Na porta 8001 use `/proxy/8001` e outro banco em `BAYVIVA_DB`.
 - Testes: `pytest`
 

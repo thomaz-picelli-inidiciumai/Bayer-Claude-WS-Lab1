@@ -2,7 +2,19 @@
 
 Repositório inicial do workshop Claude Code. CRM fictício, dados 100% sintéticos.
 
-## Começar
+## Começar (um comando só)
+No ambiente do workshop (atrás do proxy da VM):
+```bash
+bash iniciar.sh
+```
+No seu computador, sem proxy: `bash iniciar.sh local`.
+
+O script cria o ambiente Python, instala as dependências, cria o banco, sobe o app com o
+prefixo e a porta certos e **confere** se o login, o redirecionamento e o CSS respondem. Ele
+termina mostrando o endereço para abrir (`.../proxy/8000/login`). Se algo estiver errado, ele
+diz o que, em vez de subir uma tela sem CSS. Outra porta: `PORTA=8001 bash iniciar.sh`.
+
+### Passo a passo manual (só se precisar)
 ```bash
 python -m venv .venv
 .venv/Scripts/pip install -r requirements.txt   # Windows; Linux/Mac: .venv/bin/pip
